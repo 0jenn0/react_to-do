@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { StateContext } from "../context/StateProvider";
+import styles from "./Footer.module.css";
 
 export default function Footer() {
   const { state, dispatch } = useContext(StateContext);
@@ -23,6 +24,7 @@ export default function Footer() {
       onSubmit={(e) => {
         handleSubmit(e);
       }}
+      className={styles.form}
     >
       <input
         type="text"
@@ -30,6 +32,7 @@ export default function Footer() {
         name="value"
         value={form}
         autoFocus
+        className={styles.input}
       />
       <button>Add + </button>
     </form>

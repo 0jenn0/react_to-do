@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { StateContext } from "../context/StateProvider";
+import styles from "./Button.module.css";
 
 export default function Button({ children }) {
   const { router, routerDispatch } = useContext(StateContext);
@@ -12,5 +13,9 @@ export default function Button({ children }) {
     // console.log(router);
   };
 
-  return <button onClick={handleRouter}>{children}</button>;
+  return (
+    <button className={styles.Button} onClick={handleRouter}>
+      {children}
+    </button>
+  );
 }

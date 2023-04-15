@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import List from "./List";
 import { StateContext } from "../context/StateProvider";
+import styles from "./ListBox.module.css";
 
 export default function ListBox() {
   const { state, dispatch, router, routerDispatch } = useContext(StateContext);
 
   if (router.All === true)
     return (
-      <div>
+      <div className={styles.container}>
         {state.todos.map((todo) => (
           <List
             key={todo.id.toString()}
@@ -21,7 +22,7 @@ export default function ListBox() {
 
   if (router.Active === true)
     return (
-      <div>
+      <div className={styles.container}>
         {state.todos
           .filter((todo) => todo.checked === false)
           .map((todo) => (
@@ -37,7 +38,7 @@ export default function ListBox() {
 
   if (router.Complete === true)
     return (
-      <div>
+      <div className={styles.container}>
         {state.todos
           .filter((todo) => todo.checked === true)
           .map((todo) => (

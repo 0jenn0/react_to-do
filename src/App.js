@@ -6,11 +6,13 @@ import StateProvider from "./context/StateProvider";
 
 function App() {
   return (
-    <StateProvider>
-      <Navbar />
-      <ListBox />
-      <Footer />
-    </StateProvider>
+    <div className="App">
+      <StateProvider>
+        <Navbar />
+        <ListBox />
+        <Footer />
+      </StateProvider>
+    </div>
   );
 }
 

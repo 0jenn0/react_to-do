@@ -5,11 +5,13 @@ import DarkmodeButton from "./DarkmodeButton";
 
 export default function Navbar() {
   return (
-    <div className={styles.container}>
+    <div className={styles.Navbar}>
       <DarkmodeButton />
-      <Button>All</Button>
-      <Button>Active</Button>
-      <Button>Complete</Button>
+      <div>
+        <Button>All</Button>
+        <Button>Active</Button>
+        <Button>Complete</Button>
+      </div>
     </div>
   );
 }

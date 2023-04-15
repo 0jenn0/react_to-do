@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useState } from "react";
 import stateReducer from "../reducer/state-reducer";
 import routerReducer from "../reducer/router-reducer";
 
@@ -16,8 +16,29 @@ export default function StateProvider({ children }) {
     JSON.parse(window.localStorage.getItem("router")) || initialRouter
   );
 
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const handleDarkMode = (className) => {
+    // console.log("핸들다크모드 :", className);
+    // console.log("isDarkmode", isDarkMode);
+    // console.log(`styles.${className}-dark`);
+    return isDarkMode
+      ? `styles.${className}-dark`
+      : `styles.${className.split("-")[0]}`;
+  };
+
   return (
-    <StateContext.Provider value={{ state, dispatch, router, routerDispatch }}>
+    <StateContext.Provider
+      value={{
+        state,
+        dispatch,
+        router,
+        routerDispatch,
+        isDarkMode,
+        setIsDarkMode,
+        handleDarkMode,
+      }}
+    >
       {children}
     </StateContext.Provider>
   );
@@ -40,3 +61,5 @@ const initialRouter = {
   Active: false,
   Complete: false,
 };
+
+const initialDarkMode = false;
